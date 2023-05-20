@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 
 class SplashViewModel extends GetxController {
-  SplashViewModel();
+ // SplashViewModel();
 
   Future<void> delayOfScreen() async {
     await Future.delayed(const Duration(seconds: 4));
@@ -16,7 +16,7 @@ class SplashViewModel extends GetxController {
   checkLogin() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     if (prefs.getString('token') != null) {
-      await Get.offAllNamed('/bottom');
+      await Get.offAllNamed('/home');
     } else {
       await Get.offAllNamed('/login');
     }
@@ -30,4 +30,5 @@ class SplashViewModel extends GetxController {
     super.onInit();
 
   }
+
 }

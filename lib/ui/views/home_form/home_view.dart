@@ -18,7 +18,11 @@ class HomeView extends GetView<HomeViewModel> {
     final mHeight = MediaQuery.of(context).size.height;
     final mWidth = MediaQuery.of(context).size.width;
     return GetBuilder<HomeViewModel>(builder: (_) {
-      return SingleChildScrollView(
+
+      return Scaffold(
+
+        backgroundColor: Colors.yellow,
+      body:  SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: EdgeInsets.only(
@@ -39,7 +43,7 @@ class HomeView extends GetView<HomeViewModel> {
             ),
           ),
         ),
-      );
+      ));
     });
   }
 

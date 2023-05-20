@@ -8,7 +8,6 @@ import 'package:statemanagement/ui/views/splash/splash_binding.dart';
 
 import 'app/router.dart';
 
-var itemCountOfTable = 0.obs;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 

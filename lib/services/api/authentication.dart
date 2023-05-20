@@ -22,24 +22,4 @@ class ApiLogin {
   }
 }
 
-//
-//
-// import 'dart:convert';
-//
-// import 'package:http/http.dart';
-// import 'package:kaaly/db/products_db.dart';
-//
-// import 'package:kaaly/services/repository/api_client.dart';
-//
-// import '../../datamodels/get_item_code.dart';
-//
-// class ApiItemCode {
-//   ApiClient apiClient = ApiClient();
-//   final String getItemCodePath = 'api/get-products';
-//   Future<GetItemCode> getItemCodeFunction()async{
-//     Response  response = await apiClient.invokeAPI(path: getItemCodePath, method: "GET", body: null);
-//     // print("RESPONSE PRODUCT CODE :${ jsonDecode(response.body)["data"] }");
-//     writeProductData(jsonDecode(response.body)["data"]);
-//     return GetItemCode.fromJson(json.decode(response.body));
-//   }
-// }
+

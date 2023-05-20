@@ -33,7 +33,8 @@ class LoginViewModel extends GetxController {
 
 
 
-        await Get.offAllNamed('/bottom');
+        await Get.offAllNamed('/home');
+
       }
       print("__________ DATA :${data.toString()}");
     } catch (e) {
