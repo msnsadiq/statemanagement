@@ -21,6 +21,7 @@ class HomeViewModel extends GetxController {
       loading.value = true;
       listCountryModelClass = await apiCountry.CountryApiFunction();
       loading.value = false;
+      update();
     } on SocketException catch (e) {
       print("SOCKET EXCEPTION $e");
 
