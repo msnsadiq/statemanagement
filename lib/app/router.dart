@@ -14,5 +14,5 @@ final getPages = [
   GetPage(name: '/', page: () => const SplashView(), binding: SplashBinding()),
 
   /// GetPage(name: '/', page: ()=> TestingView(),binding: TestingBinding()),
-  GetPage(name: '/home', page: () => HomeView(), binding: HomeBinding()),
+  GetPage(name: '/home' , page: () => HomeView(), binding: HomeBinding()),
 ];

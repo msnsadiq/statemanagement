@@ -21,28 +21,17 @@ class HomeView extends GetView<HomeViewModel> {
 
       return Scaffold(
 
-        backgroundColor: Colors.yellow,
-      body:  SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Padding(
-          padding: EdgeInsets.only(
-              top: mHeight * .03, left: mWidth * .03, right: mWidth * .03),
-          child: WillPopScope(
-            onWillPop: () async {
-              //  model.keyForm.currentState!.reset();
-              return true;
-            },
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+        backgroundColor: Colors.white,
+      body:  Expanded(
+        child: ListView.builder(
+            itemCount: model.listCountryModelClass.data!.length,
+            itemBuilder: (ctx,index){
+              return ListTile(
+                title: Text(model.listCountryModelClass.data?[index].countryName.toString() ?? "" ,style: TextStyle(color: Colors.black),),
+                subtitle: Text(model.listCountryModelClass.data?[index].countryCode.toString() ?? "" ),
+              );
 
-                ],
-              ),
-            ),
-          ),
-        ),
+            }),
       ));
     });
   }
