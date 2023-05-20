@@ -11,12 +11,16 @@ import '../../../datamodels/CountryList.dart';
 import '../../../datamodels/get_shop_name.dart';
 
 class HomeViewModel extends GetxController {
+  var loading = false.obs;
+
   ApiCountry apiCountry = ApiCountry();
   ListCountryModelClass listCountryModelClass = ListCountryModelClass();
 
   getCountry() async {
     try {
+      loading.value = true;
       listCountryModelClass = await apiCountry.CountryApiFunction();
+      loading.value = false;
     } on SocketException catch (e) {
       print("SOCKET EXCEPTION $e");
 

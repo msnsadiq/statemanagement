@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 
-import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../shared_widgets/form_title.dart';
 import 'home_viewmodel.dart';
 
 class HomeView extends GetView<HomeViewModel> {
@@ -20,19 +18,26 @@ class HomeView extends GetView<HomeViewModel> {
     return GetBuilder<HomeViewModel>(builder: (_) {
 
       return Scaffold(
-
+appBar: AppBar(
+  leading: TextButton(onPressed: (){
+    print("${model.listCountryModelClass.data?.length ?? 0}");
+  }, child: Text("tap",style: TextStyle(color: Colors.black),)),
+),
         backgroundColor: Colors.white,
-      body:  Expanded(
-        child: ListView.builder(
-            itemCount: model.listCountryModelClass.data!.length,
-            itemBuilder: (ctx,index){
-              return ListTile(
-                title: Text(model.listCountryModelClass.data?[index].countryName.toString() ?? "" ,style: TextStyle(color: Colors.black),),
-                subtitle: Text(model.listCountryModelClass.data?[index].countryCode.toString() ?? "" ),
-              );
+      body:
+      model.loading.value ? Center(
+        child: CircularProgressIndicator(),
+      ) :
+      ListView.builder(
+        itemCount: model.listCountryModelClass.data?.length ?? 0,
+        //  itemCount: model.listCountryModelClass.data!.length,
+          itemBuilder: (ctx,index){
+            return ListTile(
+              title: Text(model.listCountryModelClass.data?[index].countryName.toString() ?? "" ,style: TextStyle(color: Colors.black),),
+              subtitle: Text(model.listCountryModelClass.data?[index].countryCode.toString() ?? "" ),
+            );
 
-            }),
-      ));
+          }));
     });
   }
 
